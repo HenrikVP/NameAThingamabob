@@ -1,4 +1,8 @@
-﻿// Namespace er en indpakning (Encapsulation) som gør at access modifiers med Internal kan ses i det
+﻿// Med using kan man bruge fra andre namespaces/klasser
+using OOP007Inheritance;
+
+// Namespace er en indpakning (Encapsulation) som gør at access modifiers
+// med Internal kan ses i det
 namespace NogetAndetEndProjektNavn
 {
     // Rækkefølgen på indholdet i en klasse er: Field -> Properties -> Metoder.
@@ -16,16 +20,18 @@ namespace NogetAndetEndProjektNavn
 
         // Properties med getter & setters sætter værdien (value) i et field (Set)
         // og returnerer værdien fra fieldet (Get) med mulighed for at lave logik i deres respektive bodies.
-        public int PropertyWithGetterAndSetterForField 
-        { 
-            get {
+        public int PropertyWithGetterAndSetterForField
+        {
+            get
+            {
                 if (privateField > 10) return 10;
-                else return privateField; 
-            } 
-            set {
+                else return privateField;
+            }
+            set
+            {
                 if (value < 0) privateField = 0;
-                else privateField = value; 
-            } 
+                else privateField = value;
+            }
         }
 
         // METODER
@@ -40,7 +46,29 @@ namespace NogetAndetEndProjektNavn
             foreach (var item in args)
             {
                 Console.WriteLine(item);
-            }        
+            }
+
+            // Hvis man skal have fat i et andet namespace kan man enten
+            // Tilføje det før klassenavnet eller bruge en using.
+
+            // Man instantierer et objekt ved at bruge new keyword,
+            // og skal man genbruge objektet, skal man oprette en
+            // variable af objekt typen. Dette bliver referencen.
+            
+            // Man kan ikke instantiere et objekt fra en abstrakt klasse.
+            //OOP007Inheritance.BaseInheritance baseInheritance = new();
+
+            //Typen            Variable/reference   Ny instans af objektet
+            DerivedInheritance derivedInheritance = new();
+            // Vi nedarver metoder og properties mm. fra vores baseklasse
+            // For at benytte os af objektet skal vi skrive
+            // referencenavnet/variablenavnet efterfulgt af et punktum.            derivedInheritance.MyBaseMethod();
+            derivedInheritance.MyBaseMethod();
+
+            derivedInheritance.MyBaseProperty = 100;
+
+            BaseDerivedInheritance bdi = new();
+            bdi.MyBaseMethod();
         }
     }
 }
