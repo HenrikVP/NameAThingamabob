@@ -69,6 +69,18 @@ namespace NogetAndetEndProjektNavn
 
             BaseDerivedInheritance bdi = new();
             bdi.MyBaseMethod();
+
+            //Overloading af constructor
+            //Har samme navn men forskellige parametre
+            OverloadingClass olc1 = new();
+            OverloadingClass olc2 = new("this is a string");
+
+            // Overloading af metode
+            // Har samme returtype, metodenavn, men forskellige parametre
+            olc1.MethodOverload();
+            olc1.MethodOverload("Overloaded with string");
+
+            DateTime dt = new();
         }
     }
 }
